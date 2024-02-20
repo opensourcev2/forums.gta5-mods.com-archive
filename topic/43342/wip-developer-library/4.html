@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<!-- Mirrored from forums.gta5-mods.com/topic/43342/wip-developer-library/4 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Dec 2023 08:42:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>[WIP] Developer Library | GTA5-Mods.com Forums</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="content-type" content="text/html; charset=UTF-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta property="og:site_name" content="GTA5-Mods.com Forums" />
+<meta name="msapplication-badge" content="frequency=30; polling-uri=https://forums.gta5-mods.com/sitemap.xml" />
+<meta name="keywords" content="gta5 mods, gta 5 mods, gta5, gtav, gta 5, gta v, grand theft auto 5, mods, modding, video games" />
+<meta name="msapplication-square150x150logo" content="../../../assets/uploads/system/site-logo528c.png" />
+<meta name="title" content="[WIP] Developer Library" />
+<meta name="description" content="@JohnFromGWN What exactly would you want to stream? Like a video or music? And for what purpose? In theory Websockets can &quot;stream&quot; any data (its all just bytes in the end), yes. But for a big file or any kind of playback media, its probably better to use ..." />
+<meta property="og:title" content="[WIP] Developer Library" />
+<meta property="og:description" content="@JohnFromGWN What exactly would you want to stream? Like a video or music? And for what purpose? In theory Websockets can &quot;stream&quot; any data (its all just bytes in the end), yes. But for a big file or any kind of playback media, its probably better to use ..." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" />
+<meta property="og:image:url" content="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" />
+<meta property="article:published_time" content="2023-12-18T23:35:01.400Z" />
+<meta property="article:modified_time" content="2023-12-19T02:39:18.395Z" />
+<meta property="article:section" content="Releases &amp;amp; Works in Progress" />
+<meta property="og:url" content="4.html" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<link rel="stylesheet" type="text/css" href="../../../assets/stylesheet528c.css?v=c3qs5qfruvo" />
+<link rel="icon" type="image/x-icon" href="../../../favicon528c.ico?v=c3qs5qfruvo" />
+<link rel="manifest" href="../../../manifest.json" />
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png" />
+<link rel="icon" sizes="36x36" href="../../../assets/uploads/system/touchicon-36.png" />
+<link rel="icon" sizes="48x48" href="../../../assets/uploads/system/touchicon-48.png" />
+<link rel="icon" sizes="72x72" href="../../../assets/uploads/system/touchicon-72.png" />
+<link rel="icon" sizes="96x96" href="../../../assets/uploads/system/touchicon-96.png" />
+<link rel="icon" sizes="144x144" href="../../../assets/uploads/system/touchicon-144.png" />
+<link rel="icon" sizes="192x192" href="../../../assets/uploads/system/touchicon-192.png" />
+<link rel="prefetch" href="../../../assets/src/modules/composer528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/src/modules/composer/uploads528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/src/modules/composer/drafts528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/src/modules/composer/tags528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/src/modules/composer/categoryList528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/src/modules/composer/resize528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/src/modules/composer/autocomplete528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/templates/composer528c.tpl?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/language/en-US/topic528c.json?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/language/en-US/modules528c.json?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/language/en-US/tags528c.json?v=c3qs5qfruvo" />
+<link rel="stylesheet" href="../../../plugins/nodebb-plugin-markdown/styles/github.css" />
+<link rel="prefetch" href="../../../assets/src/modules/highlight528c.js?v=c3qs5qfruvo" />
+<link rel="prefetch" href="../../../assets/language/en-US/markdown528c.json?v=c3qs5qfruvo" />
+<link rel="alternate" type="application/rss+xml" href="../../43342.html" />
+<link rel="up" href="../../../category/6/releases-works-in-progress.html" />
+<script>
+		var RELATIVE_PATH = "";
+		var config = JSON.parse('{"relative_path":"","version":"1.5.0","siteTitle":"GTA5-Mods.com Forums","browserTitle":"GTA5-Mods.com Forums","titleLayout":"&#123;pageTitle&#125; | &#123;browserTitle&#125;","showSiteTitle":false,"minimumTitleLength":"3","maximumTitleLength":"255","minimumPostLength":"3","maximumPostLength":"32767","minimumTagsPerTopic":"0","maximumTagsPerTopic":"0","minimumTagLength":"0","maximumTagLength":"0","hasImageUploadPlugin":true,"useOutgoingLinksPage":false,"allowGuestSearching":false,"allowGuestUserSearching":false,"allowGuestHandles":false,"allowFileUploads":false,"allowTopicsThumbnail":false,"usePagination":true,"disableChat":false,"disableChatMessageEditing":false,"socketioTransports":["polling","websocket"],"websocketAddress":"","maxReconnectionAttempts":5,"reconnectionDelay":1500,"topicsPerPage":"25","postsPerPage":"25","maximumFileSize":"2048","theme:id":"nodebb-theme-persona-5mods","theme:src":"","defaultLang":"en-US","userLang":"en-US","loggedIn":false,"cache-buster":"v=c3qs5qfruvo","requireEmailConfirmation":false,"topicPostSort":"oldest_to_newest","categoryTopicSort":"newest_to_oldest","csrf_token":"fGACEBf3-JVPyTz0zAA9b5HRnnIX0cbAXxtk","searchEnabled":false,"bootswatchSkin":"noskin","defaultBootswatchSkin":"noskin","timeagoCutoff":"","cookies":{"enabled":false,"message":"[[global:cookies.message]]","dismiss":"[[global:cookies.accept]]","link":"[[global:cookies.learn_more]]"},"topicSearchEnabled":false,"delayImageLoading":true,"hideSubCategories":false,"hideCategoryLastPost":false,"enableQuickReply":false,"composer-default":{"composeRouteEnabled":"off"},"markdown":{"highlight":1,"theme":"github.css"},"question-and-answer":{"defaultCid_9":"off","defaultCid_10":"off","forceQuestions":"off","defaultCid_1":"off","defaultCid_5":"off","defaultCid_8":"off","defaultCid_6":"off","defaultCid_7":"off","defaultCid_2":"off"}}');
+		var app = {
+			template: "topic",
+			user: JSON.parse('{"uid":0,"username":"Guest","userslug":"","email":"","picture":"","status":"offline","reputation":0,"email:confirmed":false,"isAdmin":false,"isGlobalMod":false,"isMod":false,"isEmailConfirmSent":false}')
+		};
+	</script>
+<script src="../../../assets/nodebb.min528c.js?v=c3qs5qfruvo"></script>
+<meta name="google-site-verification" content="5dDEt8dAT7yVIYHd1LnzFcmRZzMck9E2MQm0R5qdJQk" />
+<style type="text/css">hr{margin-top:10px;margin-bottom:15px}.header .forum-logo{width:88px;height:40px;margin:5px 12px 5px 5px}#header-menu{background-color:#20ba4e;color:#fff;border:0;font-size:16px;height:50px}.header .pagination-block .progress-container{background-color:#0a9f3d}.navbar-default .navbar-brand{color:#fff;border:0}.navbar-default .navbar-brand:hover{color:#fff}.navbar-default .navbar-nav>li>a,.navbar-default .btn-link,.navbar-default .btn-link:hover,.navbar-default .btn-link:focus{color:#fff}.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a:focus,.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus{color:#fff;background-color:#0a9f3d}.header #user_dropdown{padding:5px}.header #user_dropdown img,.header #user_dropdown .user-icon{border-radius:0;width:40px;height:40px}#search-form{padding:0}#search-button{font-size:16px}.navbar-default .navbar-toggle{border:0;margin:0;padding:13px;color:#fff}.navbar-default .navbar-toggle .fa-bars{font-size:20px}.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus{background-color:#0a9f3d}@media (max-width:767px){.header .forum-logo{margin-right:0;margin-left:15px}}.breadcrumb a,.categories>li .content h2>a,.category>ul>li .content h2>a{color:#000}.account .cover .avatar-wrapper{background-color:#fff}</style>
+</head>
+<body class="page-topic page-topic-43342 page-topic-wip-developer-library skin-noskin">
+<nav id="menu" class="hidden">
+<section class="menu-profile">
+</section>
+<section class="menu-section" data-section="navigation">
+<h3 class="menu-section-title">Navigation</h3>
+<ul class="menu-section-list"></ul>
+</section>
+</nav>
+<main id="panel">
+<nav class="navbar navbar-default navbar-fixed-top header" id="header-menu" component="navbar">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" id="mobile-menu">
+<span component="notifications/icon" class="notification-icon fa fa-fw fa-bell" data-content="0"></span>
+<span class="fa fa-bars"></span>
+</button>
+<a href="https://www.gta5-mods.com/">
+<img alt="GTA5-Mods.com" class=" forum-logo" src="../../../assets/uploads/system/site-logo528c.png" />
+</a>
+<div component="navbar/title" class="visible-xs hidden">
+<span></span>
+</div>
+</div>
+<div id="nav-dropdown" class="hidden-xs">
+<ul id="logged-out-menu" class="nav navbar-nav navbar-right">
+<li>
+<a href="../../../register.html">
+<i class="fa fa-pencil visible-xs-inline"></i>
+<span>Register</span>
+</a>
+</li>
+<li>
+<a href="../../../login.html">
+<i class="fa fa-sign-in visible-xs-inline"></i>
+<span>Login</span>
+</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right hidden-xs">
+<li>
+<a href="#" id="reconnect" class="hide" title="Connection to GTA5-Mods.com Forums has been lost, attempting to reconnect...">
+<i class="fa fa-check"></i>
+</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right pagination-block visible-lg visible-md">
+<li class="dropdown">
+<a><i class="fa fa-angle-double-up pointer fa-fw pagetop"></i></a>
+<a><i class="fa fa-angle-up pointer fa-fw pageup"></i></a>
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="pagination-text"></span>
+</a>
+<a><i class="fa fa-angle-down pointer fa-fw pagedown"></i></a>
+<a><i class="fa fa-angle-double-down pointer fa-fw pagebottom"></i></a>
+<div class="progress-container">
+<div class="progress-bar"></div>
+</div>
+<ul class="dropdown-menu" role="menu">
+<input type="text" class="form-control" id="indexInput" placeholder="Enter index">
+</ul>
+</li>
+</ul>
+<ul id="main-nav" class="nav navbar-nav">
+<li class>
+<a href="../../../index.html" title="Categories">
+<i class="fa fa-fw fa-list"></i>
+<span class="visible-xs-inline">Categories</span>
+</a>
+</li>
+<li class>
+<a href="../../../recent.html" title="Recent">
+<i class="fa fa-fw fa-clock-o"></i>
+<span class="visible-xs-inline">Recent</span>
+</a>
+</li>
+<li class>
+<a href="../../../popular.html" title="Popular">
+<i class="fa fa-fw fa-fire"></i>
+<span class="visible-xs-inline">Popular</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container" id="content">
+<noscript>
+		<div class="alert alert-danger">
+			<p>
+				Your browser does not seem to support JavaScript. As a result, your viewing experience will be diminished, and you have been placed in <strong>read-only mode</strong>.
+			</p>
+			<p>
+				Please download a browser that supports JavaScript, or enable it if it's disabled (i.e. NoScript).
+			</p>
+		</div>
+	</noscript>
+<ol class="breadcrumb">
+<li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="../../../index.html" itemprop="url">
+<span itemprop="title">
+Home
+</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="../../../category/6/releases-works-in-progress.html" itemprop="url">
+<span itemprop="title">
+Releases &amp; Works in Progress
+</span>
+</a>
+</li>
+<li component="breadcrumb/current" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+<span itemprop="title">
+[WIP] Developer Library
+</span>
+</li>
+</ol>
+<div widget-area="header"></div>
+<div class="row">
+<div class="topic col-lg-12 col-sm-12"> 
+<hr/>
+<div class="post-bar">
+<div class="clearfix">
+<div class="tags pull-left">
+</div>
+<div class="topic-main-buttons pull-right">
+<span class="loading-indicator btn pull-left hidden" done="0">
+<span class="hidden-xs">Loading More Posts</span> <i class="fa fa-refresh fa-spin"></i>
+</span>
+<div class="stats hidden-xs">
+<span component="topic/post-count" class="human-readable-number" title="10">10</span><br/>
+<small>Posts</small>
+</div>
+<div class="stats hidden-xs">
+<span class="human-readable-number" title="292">292</span><br/>
+<small>Views</small>
+</div>
+<div component="topic/reply/container" class="btn-group action-bar hidden">
+<button class="btn btn-primary" component="topic/reply">Reply</button>
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+<span class="caret"></span>
+</button>
+<ul class="dropdown-menu pull-right" role="menu">
+<li><a href="#" component="topic/reply-as-topic">Reply as topic</a></li>
+</ul>
+</div>
+<a component="topic/reply/guest" href="../../../login.html" class="btn btn-primary">Log in to reply</a>
+<div class="pull-right">&nbsp;
+</div>
+</div>
+</div>
+<hr/>
+</div>
+<h1 component="post/header" class="hidden-xs" itemprop="name">
+<i class="pull-left fa fa-thumb-tack hidden" title="Pinned"></i>
+<i class="pull-left fa fa-lock hidden" title="Locked"></i>
+<i class="pull-left fa fa-arrow-circle-right hidden" title="Moved"></i>
+<span class="topic-title" component="topic/title">[WIP] Developer Library</span>
+</h1>
+<div component="topic/deleted/message" class="alert alert-warning hidden clearfix">
+<span class="pull-left">This topic has been deleted. Only users with topic management privileges can see it.</span>
+<span class="pull-right">
+</span>
+</div>
+<hr class="visible-xs" />
+<ul component="topic" class="posts" data-tid="43342" data-cid="6">
+<li component="post" class data-index="0" data-pid="205549" data-uid="22207" data-timestamp="1702942501400" data-username="Slluxx" data-userslug="slluxx" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="0" name="0"></a>
+<meta itemprop="datePublished" content="2023-12-18T23:35:01.400Z">
+<meta itemprop="dateModified" content>
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/slluxx.html">
+<img component="user/picture" data-uid="22207" src="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" align="left" itemprop="image" />
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/slluxx.html" itemprop="author" data-username="Slluxx" data-uid="22207">Slluxx</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="1.html"><span class="timeago" title="2023-12-18T23:35:01.400Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon hidden"></i>
+<small data-editor component="post/editor" class="hidden">last edited by <span class="timeago" title></span></small>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p>I am currently developing a few mods that require me to write libraries to reuse code. For example an <a href="https://en.wikipedia.org/wiki/On-board_diagnostics" rel="nofollow">OBD inspired</a> mod that allows me to grab any car data and display it on my phone, a website or whatever you can think of. This way i can create detailed graphs for tuning/dyno'ing or a custom real-life spedometer etc.</p>
+<p>Currently i have the following implemented</p>
+<ul>
+<li>
+<p>Websocket server lib<br/>
+This is for sending and recieving <strong>any</strong> data. Since it is a server, there is no hard limit on devices that can recieve data. Port can be changed at will, authentication is implemented too (allthough not nessesary in a local network).</p>
+</li>
+<li>
+<p>GlobalEvents lib<br/>
+Universal library to register, recieve and trigger events <strong>across entire mods</strong>, threads, and/or classes.</p>
+</li>
+<li>
+<p>Decors lib<br/>
+Allows to save custom data (Bool, Int, Float) on Entities which can be accessed by any other script/mod. SHVDN only has the natives and they also dont work correctly by default. This lib adds the functions and makes nessesary memory edits to the game to unlock the locked decors.</p>
+</li>
+</ul>
+<p>One of the reasons is simply that there seems to be no good libraries out there and the few &quot;helper&quot; mods are just utter garbage.</p>
+<p>What can you do with this? (<strong>very</strong> simple example)<br/>
+A lot with basically no code at all. For example, the Decors allow me to store if and which neon lights have been purchased directly onto a car (which then allows me to allow a neon-toggle only if the car has actually purchased them):</p>
+<pre><code>if (Decors.DecorExistOn(vehicle, &quot;NEON_PURCHASED&quot;)) &#123; return; &#125;;
+// ...
+Decors.DecorSetBool(vehicle, &quot;NEON_PURCHASED&quot;, true);
+</code></pre>
+<p>An eventhandler (global events) looks like this:</p>
+<pre><code>private lib.globalevents.GlobalEvents Events = lib.globalevents.GlobalEvents.Instance;
+public ClassConstructor()
+&#123;
+    Events.Subscribe(&quot;ToggleNeon&quot;, OnToggleNeon);
+&#125;
+private void OnToggleNeon(params object[] args)
+&#123;
+    neon();
+&#125;
+</code></pre>
+<p>And since the Websocket lib can trigger global events, anything can be controlled remotely. Here is the (still rough) example in action: <div class="embed-wrapper"><div class="embed-container"><iframe src="https://www.youtube.com/embed/61gEHrFd8Rc" frameborder="0" allowfullscreen></iframe></div></div></p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="1">1</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+<div class="post-bar-placeholder"></div>
+</li>
+<li component="post" class data-index="1" data-pid="205550" data-uid="232117" data-timestamp="1702944130435" data-username="JohnFromGWN" data-userslug="johnfromgwn" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="1" name="1"></a>
+<meta itemprop="datePublished" content="2023-12-19T00:02:10.435Z">
+<meta itemprop="dateModified" content="2023-12-19T00:13:59.595Z">
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/johnfromgwn.html">
+<div component="user/picture" data-uid="232117" class="user-icon" style="background-color: #673ab7;">J</div>
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/johnfromgwn.html" itemprop="author" data-username="JohnFromGWN" data-uid="232117">JohnFromGWN</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="2.html"><span class="timeago" title="2023-12-19T00:02:10.435Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon "></i>
+<small data-editor="johnfromgwn" component="post/editor" class="hidden">last edited by JohnFromGWN <span class="timeago" title="2023-12-19T00:13:59.595Z"></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205549" href="1.html"><i class="fa fa-reply"></i> @Slluxx</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/slluxx.html">@Slluxx</a> said in <a href="1.html">[WIP] Developer Library</a>:</p>
+<blockquote>
+<p>This is for sending and recieving any data. Since it is a server, there is no hard limit on devices that can recieve data. Port can be changed at will, authentication is implemented too (allthough not nessesary in a local network).</p>
+</blockquote>
+<p>Does sending and receiving data include streaming?</p>
+<p>Hard to tell much from the 10 second video but I'll will definitely be following this. Good initiative.</p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="1">1</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class="deleted" data-index="2" data-pid="205553" data-uid="232117" data-timestamp="1702944812316" data-username="JohnFromGWN" data-userslug="johnfromgwn" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="2" name="2"></a>
+<meta itemprop="datePublished" content="2023-12-19T00:13:32.316Z">
+<meta itemprop="dateModified" content>
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/johnfromgwn.html">
+<div component="user/picture" data-uid="232117" class="user-icon" style="background-color: #673ab7;">J</div>
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/johnfromgwn.html" itemprop="author" data-username="JohnFromGWN" data-uid="232117">JohnFromGWN</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="3.html"><span class="timeago" title="2023-12-19T00:13:32.316Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon hidden"></i>
+<small data-editor component="post/editor" class="hidden">last edited by <span class="timeago" title></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205550" href="2.html"><i class="fa fa-reply"></i> @JohnFromGWN</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+This post is deleted!
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="0">0</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="3" data-pid="205555" data-uid="22207" data-timestamp="1702948128775" data-username="Slluxx" data-userslug="slluxx" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="3" name="3"></a>
+<meta itemprop="datePublished" content="2023-12-19T01:08:48.775Z">
+<meta itemprop="dateModified" content>
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/slluxx.html">
+<img component="user/picture" data-uid="22207" src="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" align="left" itemprop="image" />
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/slluxx.html" itemprop="author" data-username="Slluxx" data-uid="22207">Slluxx</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="4.html"><span class="timeago" title="2023-12-19T01:08:48.775Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon hidden"></i>
+<small data-editor component="post/editor" class="hidden">last edited by <span class="timeago" title></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205550" href="2.html"><i class="fa fa-reply"></i> @JohnFromGWN</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/johnfromgwn.html">@JohnFromGWN</a> What exactly would you want to stream? Like a video or music? And for what purpose? In theory Websockets can &quot;stream&quot; any data (its all just bytes in the end), yes. But for a big file or any kind of playback media, its probably better to use TCP sockets. More efficient, less convinient. If you just mean a constant stream of any kind that you would open with a stream reader, no. Its chunked packets.</p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="1">1</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="4" data-pid="205557" data-uid="232117" data-timestamp="1702948645483" data-username="JohnFromGWN" data-userslug="johnfromgwn" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="4" name="4"></a>
+<meta itemprop="datePublished" content="2023-12-19T01:17:25.483Z">
+<meta itemprop="dateModified" content="2023-12-19T01:26:25.435Z">
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/johnfromgwn.html">
+<div component="user/picture" data-uid="232117" class="user-icon" style="background-color: #673ab7;">J</div>
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/johnfromgwn.html" itemprop="author" data-username="JohnFromGWN" data-uid="232117">JohnFromGWN</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="5.html"><span class="timeago" title="2023-12-19T01:17:25.483Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon "></i>
+<small data-editor="johnfromgwn" component="post/editor" class="hidden">last edited by JohnFromGWN <span class="timeago" title="2023-12-19T01:26:25.435Z"></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205555" href="4.html"><i class="fa fa-reply"></i> @Slluxx</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/slluxx.html">@Slluxx</a> Bink Video (bik) is not fun to work with and there is definitely interest, manifested in past posts, to play videos on the TVs and Cinema Screens that can be found throughout Los Santos. To be perfectly honest, I would love to see the ability to play local video files (mp4, mkv) but streaming video would be my second choice. Streaming video has already been implemented in FiveM, would love to see it in SP.</p>
+<p>So to be specific, to stream youtube videos would be amazing. The coordinates of the screen itself would be the target for the stream. A good example of a big screen would be those at the racetrack at the Casino. Music is of less interest as this was already developed in C# - I have this integrated in my own LemonUI trainer.</p>
+<p>Example of streaming video that I did tested in my local fiveM server:</p>
+<p><div class="embed-wrapper"><div class="embed-container"><iframe src="https://www.youtube.com/embed/Hg_nJPsjbzs" frameborder="0" allowfullscreen></iframe></div></div></p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="0">0</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="5" data-pid="205561" data-uid="22207" data-timestamp="1702949446354" data-username="Slluxx" data-userslug="slluxx" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="5" name="5"></a>
+<meta itemprop="datePublished" content="2023-12-19T01:30:46.354Z">
+<meta itemprop="dateModified" content>
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/slluxx.html">
+<img component="user/picture" data-uid="22207" src="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" align="left" itemprop="image" />
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/slluxx.html" itemprop="author" data-username="Slluxx" data-uid="22207">Slluxx</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="6.html"><span class="timeago" title="2023-12-19T01:30:46.354Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon hidden"></i>
+<small data-editor component="post/editor" class="hidden">last edited by <span class="timeago" title></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205557" href="5.html"><i class="fa fa-reply"></i> @JohnFromGWN</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/johnfromgwn.html">@JohnFromGWN</a> Hm. Streaming video (or anything) in FiveM is basically overwriting the original files / using them in place of the originals. You basically load the files when joining the server, not at runtime. I cant say for sure but i doubt that there are natives for this kind of thing, which means you'd need to patch the bytes within the game as they are loaded by whatever function is loading the (or from the) RPF. Thats an ungodly amount of work. Maybe a different loader has different hooks into the game but since i only know SHVDN, i will give this a &quot;probably no&quot;.</p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="0">0</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="6" data-pid="205563" data-uid="232117" data-timestamp="1702952319536" data-username="JohnFromGWN" data-userslug="johnfromgwn" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="6" name="6"></a>
+<meta itemprop="datePublished" content="2023-12-19T02:18:39.536Z">
+<meta itemprop="dateModified" content="2023-12-19T02:19:43.177Z">
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/johnfromgwn.html">
+<div component="user/picture" data-uid="232117" class="user-icon" style="background-color: #673ab7;">J</div>
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/johnfromgwn.html" itemprop="author" data-username="JohnFromGWN" data-uid="232117">JohnFromGWN</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="7.html"><span class="timeago" title="2023-12-19T02:18:39.536Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon "></i>
+<small data-editor="johnfromgwn" component="post/editor" class="hidden">last edited by JohnFromGWN <span class="timeago" title="2023-12-19T02:19:43.177Z"></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205561" href="6.html"><i class="fa fa-reply"></i> @Slluxx</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/slluxx.html">@Slluxx</a> said in <a href="6.html">[WIP] Developer Library</a>:</p>
+<blockquote>
+<p><a class="plugin-mentions-a" href="../../../user/johnfromgwn.html">@JohnFromGWN</a> Hm. Streaming video (or anything) in FiveM is basically overwriting the original files / using them in place of the originals.</p>
+</blockquote>
+<p>Actually no. This is done at run time. The script loads a user interface element allowing the user to set parameters. The parameters include the location of the target screen (with an alias for the screen) and the url of the youtube video. In practice, and at run time, you copy paste the url and off you go.</p>
+<p>Indeed, there aren't any native functions to do this. Videos in SP can be replaced and this is done by overwriting the game bik files.</p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="0">0</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="7" data-pid="205565" data-uid="22207" data-timestamp="1702952853131" data-username="Slluxx" data-userslug="slluxx" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="7" name="7"></a>
+<meta itemprop="datePublished" content="2023-12-19T02:27:33.131Z">
+<meta itemprop="dateModified" content>
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/slluxx.html">
+<img component="user/picture" data-uid="22207" src="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" align="left" itemprop="image" />
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/slluxx.html" itemprop="author" data-username="Slluxx" data-uid="22207">Slluxx</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="8.html"><span class="timeago" title="2023-12-19T02:27:33.131Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon hidden"></i>
+<small data-editor component="post/editor" class="hidden">last edited by <span class="timeago" title></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205563" href="7.html"><i class="fa fa-reply"></i> @JohnFromGWN</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/johnfromgwn.html">@JohnFromGWN</a> If thats true, i might be able to do something. Didnt know you were talking about a youtube video but a server resource. Do you have a url to a script or something that i can look at?</p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="0">0</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="8" data-pid="205566" data-uid="232117" data-timestamp="1702952880621" data-username="JohnFromGWN" data-userslug="johnfromgwn" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="8" name="8"></a>
+<meta itemprop="datePublished" content="2023-12-19T02:28:00.621Z">
+<meta itemprop="dateModified" content>
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/johnfromgwn.html">
+<div component="user/picture" data-uid="232117" class="user-icon" style="background-color: #673ab7;">J</div>
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/johnfromgwn.html" itemprop="author" data-username="JohnFromGWN" data-uid="232117">JohnFromGWN</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="9.html"><span class="timeago" title="2023-12-19T02:28:00.621Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon hidden"></i>
+<small data-editor component="post/editor" class="hidden">last edited by <span class="timeago" title></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205561" href="6.html"><i class="fa fa-reply"></i> @Slluxx</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/slluxx.html">@Slluxx</a></p>
+<p><div class="embed-wrapper"><div class="embed-container"><iframe src="https://www.youtube.com/embed/0465bNDB-mo" frameborder="0" allowfullscreen></iframe></div></div></p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="0">0</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+<li component="post" class data-index="9" data-pid="205567" data-uid="22207" data-timestamp="1702953558395" data-username="Slluxx" data-userslug="slluxx" itemscope itemtype="http://schema.org/Comment">
+<a component="post/anchor" data-index="9" name="9"></a>
+<meta itemprop="datePublished" content="2023-12-19T02:39:18.395Z">
+<meta itemprop="dateModified" content="2023-12-19T02:40:40.558Z">
+<div class="clearfix post-header">
+<div class="icon pull-left">
+<a href="../../../user/slluxx.html">
+<img component="user/picture" data-uid="22207" src="../../../../img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg" align="left" itemprop="image" />
+<i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
+</a>
+</div>
+<small class="pull-left">
+<strong>
+<a href="../../../user/slluxx.html" itemprop="author" data-username="Slluxx" data-uid="22207">Slluxx</a>
+</strong>
+<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+<a class="permalink" href="10.html"><span class="timeago" title="2023-12-19T02:39:18.395Z"></span></a>
+<i class="fa fa-pencil-square pointer edit-icon "></i>
+<small data-editor="slluxx" component="post/editor" class="hidden">last edited by Slluxx <span class="timeago" title="2023-12-19T02:40:40.558Z"></span></small>
+<a component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="205566" href="9.html"><i class="fa fa-reply"></i> @JohnFromGWN</a>
+<span>
+</span>
+</div>
+<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
+</small>
+</div>
+<br/>
+<div class="content" component="post/content" itemprop="text">
+<p><a class="plugin-mentions-a" href="../../../user/johnfromgwn.html">@JohnFromGWN</a> Okay, thats interesting. the first thing i notice is the text top left, top right and bottom right when the video starts. Those are not in the actual video but html elements/javascript, which means this has nothing to do with anything happeningon the server/ingame. FiveM allows you to run resources with JS in a chromium browser overlayed onto the game and i think thats whats happening here.</p>
+<p>Eg having a Vector4 (or whatever) to hold 4 coordinates in game-space and then projecting the screen-space html video player inside the &quot;overlay&quot; into fake game-space. GTA5 or SHVDN dont have that capability so either id need to hack into other processes (chrome/ webview/ idk) or ship the cef browser and figure something out. But i can tell you that this is not easy <strong>at all</strong> and only possible due to how FiveM integrates an entire browser</p>
+<p>I can mess around with things but since i would need to hack into other processes, i wouldnt get my hopes up.</p>
+</div>
+<div class="clearfix post-footer">
+<small class="pull-right">
+<span class="post-tools">
+<a component="post/reply" href="#" class="no-select hidden">Reply</a>
+<a component="post/quote" href="#" class="no-select hidden">Quote</a>
+</span>
+<span class="votes">
+<a component="post/upvote" href="#" class>
+<i class="fa fa-chevron-up"></i>
+</a>
+<span component="post/vote-count" data-votes="1">1</span>
+<a component="post/downvote" href="#" class>
+<i class="fa fa-chevron-down"></i>
+</a>
+</span>
+<span component="post/tools" class="dropdown moderator-tools bottom-sheet hidden">
+<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+</span>
+</small>
+<a component="post/reply-count" href="#" class="no-select clearfix hidden">
+<i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
+<i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
+<i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
+<span component="post/reply-count/text" data-replies> Replies</span>
+</a>
+</div>
+<hr/>
+</li>
+</ul>
+<div class="post-bar">
+<div class="clearfix">
+<div class="tags pull-left">
+</div>
+<div class="topic-main-buttons pull-right">
+<span class="loading-indicator btn pull-left hidden" done="0">
+<span class="hidden-xs">Loading More Posts</span> <i class="fa fa-refresh fa-spin"></i>
+</span>
+<div class="stats hidden-xs">
+<span component="topic/post-count" class="human-readable-number" title="10">10</span><br/>
+<small>Posts</small>
+</div>
+<div class="stats hidden-xs">
+<span class="human-readable-number" title="292">292</span><br/>
+<small>Views</small>
+</div>
+<div component="topic/reply/container" class="btn-group action-bar hidden">
+<button class="btn btn-primary" component="topic/reply">Reply</button>
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+<span class="caret"></span>
+</button>
+<ul class="dropdown-menu pull-right" role="menu">
+<li><a href="#" component="topic/reply-as-topic">Reply as topic</a></li>
+</ul>
+</div>
+<a component="topic/reply/guest" href="../../../login.html" class="btn btn-primary">Log in to reply</a>
+<div class="pull-right">&nbsp;
+</div>
+</div>
+</div>
+<hr/>
+</div>
+<div component="pagination" class="text-center pagination-container hidden">
+<ul class="pagination hidden-xs">
+<li class="previous pull-left disabled">
+<a href="4d41d.html?" data-page="1"><i class="fa fa-chevron-left"></i> </a>
+</li>
+<li class="next pull-right disabled">
+<a href="4d41d.html?" data-page="1"> <i class="fa fa-chevron-right"></i></a>
+</li>
+</ul>
+<ul class="pagination hidden-sm hidden-md hidden-lg">
+<li class="first disabled">
+<a href="42679.html?page=1" data-page="1"><i class="fa fa-fast-backward"></i> </a>
+</li>
+<li class="previous disabled">
+<a href="4d41d.html?" data-page="1"><i class="fa fa-chevron-left"></i> </a>
+</li>
+<li component="pagination/select-page" class="page select-page">
+<a href="#">1 / 1</a>
+</li>
+<li class="next disabled">
+<a href="4d41d.html?" data-page="1"> <i class="fa fa-chevron-right"></i></a>
+</li>
+<li class="last disabled">
+<a href="42679.html?page=1" data-page="1"><i class="fa fa-fast-forward"></i> </a>
+</li>
+</ul>
+</div>
+<div class="visible-xs visible-sm pagination-block text-center">
+<div class="progress-bar"></div>
+<div class="wrapper">
+<i class="fa fa-2x fa-angle-double-up pointer fa-fw pagetop"></i>
+<i class="fa fa-2x fa-angle-up pointer fa-fw pageup"></i>
+<span class="pagination-text"></span>
+<i class="fa fa-2x fa-angle-down pointer fa-fw pagedown"></i>
+<i class="fa fa-2x fa-angle-double-down pointer fa-fw pagebottom"></i>
+</div>
+</div>
+</div>
+<div widget-area="sidebar" class="col-lg-3 col-sm-12 hidden"></div>
+</div>
+<div widget-area="footer"></div>
+<script id="ajaxify-data" type="application/json">{"tid":"43342","uid":"22207","cid":"6","mainPid":"205549","title":"[WIP] Developer Library","slug":"43342/wip-developer-library","timestamp":"1702942501400","lastposttime":"1702953558395","postcount":10,"viewcount":"292","locked":false,"deleted":false,"pinned":false,"teaserPid":"205567","titleRaw":"[WIP] Developer Library","timestampISO":"2023-12-18T23:35:01.400Z","lastposttimeISO":"2023-12-19T02:39:18.395Z","tags":[],"posts":[{"downvotes":0,"replies":{"users":[{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn","picture":"","icon:text":"J","icon:bgColor":"#673ab7","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T00:02:10.435Z","count":1},"pid":"205549","content":"<p>I am currently developing a few mods that require me to write libraries to reuse code. For example an <a href=\"https://en.wikipedia.org/wiki/On-board_diagnostics\" rel=\"nofollow\">OBD inspired<\/a> mod that allows me to grab any car data and display it on my phone, a website or whatever you can think of. This way i can create detailed graphs for tuning/dyno'ing or a custom real-life spedometer etc.<\/p>\n<p>Currently i have the following implemented<\/p>\n<ul>\n<li>\n<p>Websocket server lib<br />\nThis is for sending and recieving <strong>any<\/strong> data. Since it is a server, there is no hard limit on devices that can recieve data. Port can be changed at will, authentication is implemented too (allthough not nessesary in a local network).<\/p>\n<\/li>\n<li>\n<p>GlobalEvents lib<br />\nUniversal library to register, recieve and trigger events <strong>across entire mods<\/strong>, threads, and/or classes.<\/p>\n<\/li>\n<li>\n<p>Decors lib<br />\nAllows to save custom data (Bool, Int, Float) on Entities which can be accessed by any other script/mod. SHVDN only has the natives and they also dont work correctly by default. This lib adds the functions and makes nessesary memory edits to the game to unlock the locked decors.<\/p>\n<\/li>\n<\/ul>\n<p>One of the reasons is simply that there seems to be no good libraries out there and the few &quot;helper&quot; mods are just utter garbage.<\/p>\n<p>What can you do with this? (<strong>very<\/strong> simple example)<br />\nA lot with basically no code at all. For example, the Decors allow me to store if and which neon lights have been purchased directly onto a car (which then allows me to allow a neon-toggle only if the car has actually purchased them):<\/p>\n<pre><code>if (Decors.DecorExistOn(vehicle, &quot;NEON_PURCHASED&quot;)) { return; };\n// ...\nDecors.DecorSetBool(vehicle, &quot;NEON_PURCHASED&quot;, true);\n<\/code><\/pre>\n<p>An eventhandler (global events) looks like this:<\/p>\n<pre><code>private lib.globalevents.GlobalEvents Events = lib.globalevents.GlobalEvents.Instance;\npublic ClassConstructor()\n{\n    Events.Subscribe(&quot;ToggleNeon&quot;, OnToggleNeon);\n}\nprivate void OnToggleNeon(params object[] args)\n{\n    neon();\n}\n<\/code><\/pre>\n<p>And since the Websocket lib can trigger global events, anything can be controlled remotely. Here is the (still rough) example in action: <div class='embed-wrapper'><div class='embed-container'><iframe src='https://www.youtube.com/embed/61gEHrFd8Rc' frameborder='0' allowfullscreen><\/iframe><\/div><\/div><\/p>\n","tid":"43342","timestamp":"1702942501400","deleted":false,"upvotes":1,"uid":"22207","votes":1,"timestampISO":"2023-12-18T23:35:01.400Z","editedISO":"","index":0,"user":{"uid":"22207","username":"Slluxx","fullname":"","userslug":"slluxx","reputation":"4","postcount":"9","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","signature":"","banned":false,"status":"offline","lastonline":"1703021370163","groupTitle":null,"icon:text":"S","icon:bgColor":"#795548","lastonlineISO":"2023-12-19T21:29:30.163Z","custom_profile_info":[]},"editor":null,"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"downvotes":0,"edited":"1702944839595","replies":{"users":[{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn","picture":"","icon:text":"J","icon:bgColor":"#673ab7","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false},{"uid":"22207","username":"Slluxx","userslug":"slluxx","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","icon:text":"S","icon:bgColor":"#795548","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T00:13:32.316Z","count":2},"pid":"205550","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/22207\">@Slluxx<\/a> said in <a href=\"/post/205549\">[WIP] Developer Library<\/a>:<\/p>\n<blockquote>\n<p>This is for sending and recieving any data. Since it is a server, there is no hard limit on devices that can recieve data. Port can be changed at will, authentication is implemented too (allthough not nessesary in a local network).<\/p>\n<\/blockquote>\n<p>Does sending and receiving data include streaming?<\/p>\n<p>Hard to tell much from the 10 second video but I'll will definitely be following this. Good initiative.<\/p>\n","tid":"43342","toPid":"205549","timestamp":"1702944130435","deleted":false,"editor":{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn"},"upvotes":1,"uid":"232117","votes":1,"timestampISO":"2023-12-19T00:02:10.435Z","editedISO":"2023-12-19T00:13:59.595Z","index":1,"parent":{"username":"Slluxx"},"user":{"uid":"232117","username":"JohnFromGWN","fullname":"","userslug":"johnfromgwn","reputation":"2052","postcount":"6867","picture":"","signature":"","banned":false,"status":"offline","lastonline":"1703030044374","groupTitle":null,"icon:text":"J","icon:bgColor":"#673ab7","lastonlineISO":"2023-12-19T23:54:04.374Z","custom_profile_info":[]},"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"pid":"205553","content":"[[topic:post_is_deleted]]","tid":"43342","toPid":"205550","timestamp":"1702944812316","deleted":true,"deleterUid":"232117","uid":"232117","upvotes":0,"downvotes":0,"votes":0,"timestampISO":"2023-12-19T00:13:32.316Z","editedISO":"","index":2,"parent":{"username":"JohnFromGWN"},"user":{"uid":"232117","username":"JohnFromGWN","fullname":"","userslug":"johnfromgwn","reputation":"2052","postcount":"6867","picture":"","signature":"","banned":false,"status":"offline","lastonline":"1703030044374","groupTitle":null,"icon:text":"J","icon:bgColor":"#673ab7","lastonlineISO":"2023-12-19T23:54:04.374Z","custom_profile_info":[]},"editor":null,"bookmarked":false,"upvoted":false,"downvoted":false,"replies":{"users":[],"timestampISO":"","count":0},"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"downvotes":0,"timestamp":"1702948128775","replies":{"users":[{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn","picture":"","icon:text":"J","icon:bgColor":"#673ab7","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T01:17:25.483Z","count":1},"deleted":false,"pid":"205555","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/232117\">@JohnFromGWN<\/a> What exactly would you want to stream? Like a video or music? And for what purpose? In theory Websockets can &quot;stream&quot; any data (its all just bytes in the end), yes. But for a big file or any kind of playback media, its probably better to use TCP sockets. More efficient, less convinient. If you just mean a constant stream of any kind that you would open with a stream reader, no. Its chunked packets.<\/p>\n","tid":"43342","upvotes":1,"uid":"22207","toPid":"205550","votes":1,"timestampISO":"2023-12-19T01:08:48.775Z","editedISO":"","index":3,"parent":{"username":"JohnFromGWN"},"user":{"uid":"22207","username":"Slluxx","fullname":"","userslug":"slluxx","reputation":"4","postcount":"9","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","signature":"","banned":false,"status":"offline","lastonline":"1703021370163","groupTitle":null,"icon:text":"S","icon:bgColor":"#795548","lastonlineISO":"2023-12-19T21:29:30.163Z","custom_profile_info":[]},"editor":null,"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"edited":"1702949185435","replies":{"users":[{"uid":"22207","username":"Slluxx","userslug":"slluxx","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","icon:text":"S","icon:bgColor":"#795548","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T01:30:46.354Z","count":1},"pid":"205557","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/22207\">@Slluxx<\/a> Bink Video (bik) is not fun to work with and there is definitely interest, manifested in past posts, to play videos on the TVs and Cinema Screens that can be found throughout Los Santos. To be perfectly honest, I would love to see the ability to play local video files (mp4, mkv) but streaming video would be my second choice. Streaming video has already been implemented in FiveM, would love to see it in SP.<\/p>\n<p>So to be specific, to stream youtube videos would be amazing. The coordinates of the screen itself would be the target for the stream. A good example of a big screen would be those at the racetrack at the Casino.  Music is of less interest as this was already developed in C# - I have this integrated in my own LemonUI trainer.<\/p>\n<p>Example of streaming video that I did tested in my local fiveM server:<\/p>\n<p><div class='embed-wrapper'><div class='embed-container'><iframe src='https://www.youtube.com/embed/Hg_nJPsjbzs' frameborder='0' allowfullscreen><\/iframe><\/div><\/div><\/p>\n","tid":"43342","toPid":"205555","timestamp":"1702948645483","deleted":false,"editor":{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn"},"uid":"232117","upvotes":0,"downvotes":0,"votes":0,"timestampISO":"2023-12-19T01:17:25.483Z","editedISO":"2023-12-19T01:26:25.435Z","index":4,"parent":{"username":"Slluxx"},"user":{"uid":"232117","username":"JohnFromGWN","fullname":"","userslug":"johnfromgwn","reputation":"2052","postcount":"6867","picture":"","signature":"","banned":false,"status":"offline","lastonline":"1703030044374","groupTitle":null,"icon:text":"J","icon:bgColor":"#673ab7","lastonlineISO":"2023-12-19T23:54:04.374Z","custom_profile_info":[]},"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"replies":{"users":[{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn","picture":"","icon:text":"J","icon:bgColor":"#673ab7","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T02:18:39.536Z","count":2},"pid":"205561","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/232117\">@JohnFromGWN<\/a> Hm. Streaming video (or anything) in FiveM is basically overwriting the original files / using them in place of the originals. You basically load the files when joining the server, not at runtime. I cant say for sure but i doubt that there are natives for this kind of thing, which means you'd need to patch the bytes within the game as they are loaded by whatever function is loading the (or from the) RPF. Thats an ungodly amount of work. Maybe a different loader has different hooks into the game but since i only know SHVDN, i will give this a &quot;probably no&quot;.<\/p>\n","tid":"43342","toPid":"205557","timestamp":"1702949446354","deleted":false,"uid":"22207","upvotes":0,"downvotes":0,"votes":0,"timestampISO":"2023-12-19T01:30:46.354Z","editedISO":"","index":5,"parent":{"username":"JohnFromGWN"},"user":{"uid":"22207","username":"Slluxx","fullname":"","userslug":"slluxx","reputation":"4","postcount":"9","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","signature":"","banned":false,"status":"offline","lastonline":"1703021370163","groupTitle":null,"icon:text":"S","icon:bgColor":"#795548","lastonlineISO":"2023-12-19T21:29:30.163Z","custom_profile_info":[]},"editor":null,"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"edited":"1702952383177","timestamp":"1702952319536","replies":{"users":[{"uid":"22207","username":"Slluxx","userslug":"slluxx","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","icon:text":"S","icon:bgColor":"#795548","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T02:27:33.131Z","count":1},"deleted":false,"pid":"205563","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/22207\">@Slluxx<\/a> said in <a href=\"/post/205561\">[WIP] Developer Library<\/a>:<\/p>\n<blockquote>\n<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/232117\">@JohnFromGWN<\/a> Hm. Streaming video (or anything) in FiveM is basically overwriting the original files / using them in place of the originals.<\/p>\n<\/blockquote>\n<p>Actually no. This is done at run time. The script loads a user interface element allowing the user to set parameters. The parameters include the location of the target screen (with an alias for the screen) and the url of the youtube video. In practice, and at run time, you copy paste the url and off you go.<\/p>\n<p>Indeed, there aren't any native functions to do this.  Videos in SP can be replaced and this is done by overwriting the game bik files.<\/p>\n","editor":{"uid":"232117","username":"JohnFromGWN","userslug":"johnfromgwn"},"tid":"43342","uid":"232117","toPid":"205561","upvotes":0,"downvotes":0,"votes":0,"timestampISO":"2023-12-19T02:18:39.536Z","editedISO":"2023-12-19T02:19:43.177Z","index":6,"parent":{"username":"Slluxx"},"user":{"uid":"232117","username":"JohnFromGWN","fullname":"","userslug":"johnfromgwn","reputation":"2052","postcount":"6867","picture":"","signature":"","banned":false,"status":"offline","lastonline":"1703030044374","groupTitle":null,"icon:text":"J","icon:bgColor":"#673ab7","lastonlineISO":"2023-12-19T23:54:04.374Z","custom_profile_info":[]},"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"timestamp":"1702952853131","deleted":false,"tid":"43342","pid":"205565","toPid":"205563","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/232117\">@JohnFromGWN<\/a> If thats true, i might be able to do something. Didnt know you were talking about a youtube video but a server resource. Do you have a url to a script or something that i can look at?<\/p>\n","uid":"22207","upvotes":0,"downvotes":0,"votes":0,"timestampISO":"2023-12-19T02:27:33.131Z","editedISO":"","index":7,"parent":{"username":"JohnFromGWN"},"user":{"uid":"22207","username":"Slluxx","fullname":"","userslug":"slluxx","reputation":"4","postcount":"9","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","signature":"","banned":false,"status":"offline","lastonline":"1703021370163","groupTitle":null,"icon:text":"S","icon:bgColor":"#795548","lastonlineISO":"2023-12-19T21:29:30.163Z","custom_profile_info":[]},"editor":null,"bookmarked":false,"upvoted":false,"downvoted":false,"replies":{"users":[],"timestampISO":"","count":0},"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"pid":"205566","uid":"232117","tid":"43342","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/22207\">@Slluxx<\/a><\/p>\n<p><div class='embed-wrapper'><div class='embed-container'><iframe src='https://www.youtube.com/embed/0465bNDB-mo' frameborder='0' allowfullscreen><\/iframe><\/div><\/div><\/p>\n","timestamp":"1702952880621","deleted":false,"toPid":"205561","replies":{"users":[{"uid":"22207","username":"Slluxx","userslug":"slluxx","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","icon:text":"S","icon:bgColor":"#795548","status":"offline","administrator":false,"banned":false,"banned_until":0,"banned_until_readable":"Not Banned","email:confirmed":false}],"timestampISO":"2023-12-19T02:39:18.395Z","count":1},"upvotes":0,"downvotes":0,"votes":0,"timestampISO":"2023-12-19T02:28:00.621Z","editedISO":"","index":8,"parent":{"username":"Slluxx"},"user":{"uid":"232117","username":"JohnFromGWN","fullname":"","userslug":"johnfromgwn","reputation":"2052","postcount":"6867","picture":"","signature":"","banned":false,"status":"offline","lastonline":"1703030044374","groupTitle":null,"icon:text":"J","icon:bgColor":"#673ab7","lastonlineISO":"2023-12-19T23:54:04.374Z","custom_profile_info":[]},"editor":null,"bookmarked":false,"upvoted":false,"downvoted":false,"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0},{"downvotes":0,"edited":"1702953640558","timestamp":"1702953558395","deleted":false,"pid":"205567","content":"<p><a class=\"plugin-mentions-a\" href=\"https://forums.gta5-mods.com/uid/232117\">@JohnFromGWN<\/a> Okay, thats interesting. the first thing i notice is the text top left, top right and bottom right when the video starts. Those are not in the actual video but html elements/javascript, which means this has nothing to do with anything happeningon the server/ingame. FiveM allows you to run resources with JS in a chromium browser overlayed onto the game and i think thats whats happening here.<\/p>\n<p>Eg having a Vector4 (or whatever) to hold 4 coordinates in game-space and then projecting the screen-space html video player inside the &quot;overlay&quot; into fake game-space. GTA5 or SHVDN dont have that capability so either id need to hack into other processes (chrome/ webview/ idk) or ship the cef browser and figure something out. But i can tell you that this is not easy <strong>at all<\/strong> and only possible due to how FiveM integrates an entire browser<\/p>\n<p>I can mess around with things but since i would need to hack into other processes, i wouldnt get my hopes up.<\/p>\n","editor":{"uid":"22207","username":"Slluxx","userslug":"slluxx"},"tid":"43342","upvotes":1,"uid":"22207","toPid":"205566","votes":1,"timestampISO":"2023-12-19T02:39:18.395Z","editedISO":"2023-12-19T02:40:40.558Z","index":9,"parent":{"username":"JohnFromGWN"},"user":{"uid":"22207","username":"Slluxx","fullname":"","userslug":"slluxx","reputation":"4","postcount":"9","picture":"https://img.gta5-mods.com/q90/avatars/presets/bugstars2.jpg","signature":"","banned":false,"status":"offline","lastonline":"1703021370163","groupTitle":null,"icon:text":"S","icon:bgColor":"#795548","lastonlineISO":"2023-12-19T21:29:30.163Z","custom_profile_info":[]},"bookmarked":false,"upvoted":false,"downvoted":false,"replies":{"users":[],"timestampISO":"","count":0},"selfPost":false,"display_edit_tools":false,"display_delete_tools":false,"display_moderator_tools":false,"display_move_tools":false,"display_post_menu":0}],"category":{"disabled":false,"name":"Releases &amp; Works in Progress","description":"Check out the latest releases or works in progress and get support directly from mod authors","icon":"fa-download","post_count":"36936","order":"6","class":"col-md-3 col-xs-6","parentCid":"0","topic_count":"1510","bgColor":"#49a2bd","slug":"6/releases-works-in-progress","numRecentReplies":"1","descriptionParsed":"<p>Check out the latest releases or works in progress and get support directly from mod authors<\/p>\n","link":"","color":"#fff","cid":"6","imageClass":"cover","totalPostCount":"36936","totalTopicCount":"1510"},"thread_tools":[{"class":"toggleQuestionStatus alert-warning","title":"Ask as question","icon":"fa-question-circle"}],"isFollowing":false,"isNotFollowing":true,"isIgnoring":false,"bookmark":null,"postSharing":[],"deleter":null,"deletedTimestampISO":"","related":[],"unreplied":false,"icons":[],"breadcrumbs":[{"text":"[[global:home]]","url":"/"},{"text":"Releases &amp; Works in Progress","url":"/category/6/releases-works-in-progress"},{"text":"[WIP] Developer Library"}],"privileges":{"topics:reply":false,"topics:read":true,"topics:delete":false,"posts:edit":false,"posts:delete":false,"read":true,"view_thread_tools":false,"editable":false,"deletable":false,"view_deleted":false,"isAdminOrMod":false,"disabled":false,"tid":"43342","uid":0},"topicStaleDays":60,"reputation:disabled":false,"downvote:disabled":false,"feeds:disableRSS":true,"bookmarkThreshold":5,"postEditDuration":31540000,"postDeleteDuration":0,"scrollToMyPost":true,"rssFeedUrl":"/topic/43342.rss","pagination":{"prev":{"page":1,"active":false},"next":{"page":1,"active":false},"rel":[],"pages":[],"currentPage":1,"pageCount":1},"loggedIn":false,"relative_path":"","template":{"name":"topic","topic":true},"url":"/topic/43342/wip-developer-library/4","bodyClass":"page-topic page-topic-43342 page-topic-wip-developer-library"}</script> </div>
+</main>
+<div class="hide">
+<script type="text/tpl" data-template="500">
+&#x3C;div class=&#x22;alert alert-danger&#x22;&#x3E;
+&#x9;&#x3C;strong&#x3E;Internal Error.&#x3C;/strong&#x3E;
+&#x9;&#x3C;p&#x3E;Oops! Looks like something went wrong!&#x3C;/p&#x3E;
+&#x9;&#x3C;p&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x3C;!-- IF error --&#x3E;&#x3C;p&#x3E;&#x3C;/p&#x3E;&#x3C;!-- ENDIF error --&#x3E;
+&#x3C;/div&#x3E;
+</script>
+</div>
+<div class="topic-search hidden">
+<div class="btn-group">
+<button type="button" class="btn btn-default count"></button>
+<button type="button" class="btn btn-default prev"><i class="fa fa-fw fa-angle-up"></i></button>
+<button type="button" class="btn btn-default next"><i class="fa fa-fw fa-angle-down"></i></button>
+</div>
+</div>
+<div component="toaster/tray" class="alert-window">
+<div id="reconnect-alert" class="alert alert-dismissable alert-warning clearfix hide" component="toaster/toast">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<p>Looks like your connection to GTA5-Mods.com Forums was lost, please wait while we try to reconnect.</p>
+</div>
+</div>
+<script>
+		require(['forum/footer']);
+	</script>
+</body>
+
+<!-- Mirrored from forums.gta5-mods.com/topic/43342/wip-developer-library/4 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Dec 2023 08:42:25 GMT -->
+</html>
